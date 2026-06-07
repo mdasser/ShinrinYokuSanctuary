@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Shinrin-Yoku Sanctuary</title>
+  <meta name="description" content="Learn the story behind SYS, a 47-acre private forest sanctuary in the Berkshire Hilltowns of western Massachusetts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+    .value-item { text-align: center; padding: 2rem 1.5rem; }
+    .value-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .value-item h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+
+    .land-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+    .land-feature {
+      background: rgba(245,240,232,0.07);
+      border: 1px solid rgba(245,240,232,0.12);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+    }
+    .land-feature h4 { font-family: var(--font-sans); color: var(--cream); font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .land-feature p { font-size: 0.88rem; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav scrolled" id="nav">
+  <a href="index.html" class="nav-logo">
+    <span class="logo-main">SYS</span>
+    <span class="logo-sub">Shinrin-Yoku Sanctuary</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Experiences</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="btn btn-outline">Book a Stay</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Experiences</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-outline">Book a Stay</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg">
+    <img src="images/about-hero.jpg" alt="Forest canopy at SYS">
+  </div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="section-label">Our Story</span>
+    <h1>More Than a Retreat.<br>A Living Sanctuary.</h1>
+    <p>Rooted in place, guided by nature, and built for the kind of rest the modern world rarely offers.</p>
+  </div>
+</div>
+
+<!-- MISSION SECTION -->
+<section class="section section-light">
+  <div class="section-inner">
+    <div class="split fade-in">
+      <div class="split-text">
+        <span class="section-label">Who We Are</span>
+        <h2>A Place Where Nature Does the Healing</h2>
+        <p>Shinrin-Yoku Sanctuary was born out of a simple but urgent belief: that people need places where they can truly stop. Not just pause — but stop, breathe, and remember what stillness feels like.</p>
+        <p>Nestled in the quiet Hilltowns of western Massachusetts, just beyond the well-worn paths of the Berkshires, SYS was carefully created as a space where the land itself is the host. The 47 acres of mixed hardwood and evergreen forest provide shelter, wonder, and the quiet company of something older and wiser than any of us.</p>
+        <p>Whether you arrive as a solo traveler seeking solitude, a couple looking to reconnect, or a small group in need of renewal, SYS meets you exactly where you are.</p>
+      </div>
+      <div class="split-img">
+        <img src="images/about-founders.jpg" alt="The founders of Shinrin-Yoku Sanctuary">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS SHINRIN-YOKU -->
+<section class="section section-dark">
+  <div class="section-inner">
+    <div class="split reverse fade-in">
+      <div class="split-text">
+        <span class="section-label">The Practice</span>
+        <h2>What Is Shinrin-Yoku?</h2>
+        <p><em style="color:var(--gold);">Shinrin-Yoku</em> (森林浴) is a Japanese term that translates literally as "forest bathing." Introduced in Japan in 1982 as part of a national health program, it describes the practice of immersing oneself in the forest atmosphere — slowly, mindfully, and with all the senses open.</p>
+        <p>Unlike hiking or exercise, Shinrin-Yoku is not about a destination. It is about presence. Research has shown that time spent in forest environments can lower cortisol levels, reduce blood pressure, boost immune function, and improve mood and concentration.</p>
+        <p>At SYS, we honor this practice not as a trend but as a timeless truth: the forest has always been medicine. We simply create the conditions for you to receive it.</p>
+      </div>
+      <div class="split-img">
+        <img src="images/about-shinrin.jpg" alt="Forest bathing path at SYS">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="section section-mid">
+  <div class="section-inner">
+    <div class="section-header centered fade-in">
+      <span class="section-label">What We Believe</span>
+      <h2>Our Guiding Values</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-item fade-in">
+        <div class="value-icon">🌿</div>
+        <h3>Slowness</h3>
+        <p>We design every experience to resist urgency. Healing requires time, and we protect that time fiercely.</p>
+      </div>
+      <div class="value-item fade-in">
+        <div class="value-icon">🌍</div>
+        <h3>Stewardship</h3>
+        <p>The land is not ours — we are its caretakers. Every decision at SYS is made with the forest's long-term health in mind.</p>
+      </div>
+      <div class="value-item fade-in">
+        <div class="value-icon">🤍</div>
+        <h3>Authenticity</h3>
+        <p>No performances, no programs for the sake of programs. We offer only what we believe in and what the land can genuinely provide.</p>
+      </div>
+      <div class="value-item fade-in">
+        <div class="value-icon">🔗</div>
+        <h3>Connection</h3>
+        <p>To nature, to self, to others. We believe these three connections are inseparable, and we cultivate all of them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE LAND -->
+<section class="section section-dark">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="section-label">The Land</span>
+      <h2>47 Acres of Living Forest</h2>
+      <p>Located in the Berkshire Hilltowns of western Massachusetts — a region of rare quiet, rolling hills, and old-growth character — SYS sits on a landscape shaped by glaciers, streams, and centuries of undisturbed growth.</p>
+    </div>
+    <div class="land-features fade-in">
+      <div class="land-feature">
+        <h4>🌲 Mixed Hardwood &amp; Evergreen Forest</h4>
+        <p>Oak, maple, birch, hemlock, and white pine create a rich, layered canopy across the property in every season.</p>
+      </div>
+      <div class="land-feature">
+        <h4>💧 Native Streams &amp; Wetlands</h4>
+        <p>Two seasonal streams and a wetland meadow area support diverse wildlife and provide natural soundscapes for immersion walks.</p>
+      </div>
+      <div class="land-feature">
+        <h4>🥾 Private Trail Network</h4>
+        <p>Several miles of maintained, marked trails wind through the property — from open ridgelines to deep forest hollows.</p>
+      </div>
+      <div class="land-feature">
+        <h4>🌙 Dark Sky Nights</h4>
+        <p>Far from urban light pollution, SYS offers exceptional stargazing on clear nights — a rare and overlooked form of nature therapy.</p>
+      </div>
+      <div class="land-feature">
+        <h4>🍂 Four-Season Beauty</h4>
+        <p>Spring wildflowers, summer canopy, fall foliage, and quiet winter snow each offer their own form of restoration and wonder.</p>
+      </div>
+      <div class="land-feature">
+        <h4>🦌 Wildlife Presence</h4>
+        <p>White-tailed deer, wild turkey, fox, and a rich variety of songbirds share the sanctuary — reminding guests they are visitors in a living world.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section section-light">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="section-label">Our Journey</span>
+      <h2>How SYS Came to Be</h2>
+    </div>
+    <div class="timeline fade-in">
+      <div class="timeline-item">
+        <div class="timeline-year">2018</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <h4>The Land is Found</h4>
+          <p>After years of searching, 47 acres in the Berkshire Hilltowns is acquired — a property with deep forest, natural water features, and the essential quality of true quiet.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2019</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <h4>Listening to the Land</h4>
+          <p>The first year is spent in observation. No construction, no programs — just learning the rhythms, contours, and character of the forest before shaping any plans.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2020</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <h4>Trails &amp; Foundations</h4>
+          <p>The trail network is hand-cleared and marked. Initial accommodations are built with low-impact materials sourced from the region, designed to rest lightly on the land.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2021</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <h4>First Guests Arrive</h4>
+          <p>SYS opens to its first guests for quiet stays and guided forest walks. Word spreads slowly and organically — exactly the way the founders intended.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">Today</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-body">
+          <h4>A Growing Sanctuary</h4>
+          <p>SYS continues to deepen its offerings, expand its guide team, and strengthen its commitment to the land — welcoming guests who are ready to let the forest do its work.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section section-mid">
+  <div class="section-inner">
+    <div class="section-header centered fade-in">
+      <span class="section-label">The People</span>
+      <h2>The Guides &amp; Stewards of SYS</h2>
+      <p>Our small, dedicated team brings together expertise in nature therapy, ecology, and hospitality — all united by a deep love of this land.</p>
+    </div>
+    <div class="team-grid fade-in">
+      <div class="team-card">
+        <div class="team-avatar"><img src="images/team-1.jpg" alt="Guide portrait"></div>
+        <h3>River M.</h3>
+        <div class="role">Founder &amp; Lead Guide</div>
+        <p>Certified Shinrin-Yoku guide and lifelong naturalist. Rooted in the Berkshires since childhood.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><img src="images/team-2.jpg" alt="Guide portrait"></div>
+        <h3>Sage T.</h3>
+        <div class="role">Wellness &amp; Mindfulness Guide</div>
+        <p>Trained in mindfulness-based stress reduction and somatic practices. Leads breathwork and meditation sessions in the forest.</p>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar"><img src="images/team-3.jpg" alt="Guide portrait"></div>
+        <h3>Wren K.</h3>
+        <div class="role">Land Steward &amp; Naturalist</div>
+        <p>Ecologist and forager with a deep knowledge of the local flora, fauna, and seasonal rhythms of the Hilltowns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-forest" style="text-align:center;">
+  <div class="section-inner fade-in">
+    <span class="section-label">Come Visit</span>
+    <h2>The Forest Is Ready When You Are</h2>
+    <p style="margin: 0.75rem auto 2rem; max-width:50ch;">Every stay at SYS is a chance to return to something essential. We'd love to welcome you.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="services.html" class="btn btn-primary">See Our Experiences</a>
+      <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-main">SYS</div>
+        <div class="logo-sub">Shinrin-Yoku Sanctuary</div>
+        <p>47 private acres of forest restoration in the Berkshire Hilltowns of western Massachusetts.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Experiences</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Experiences</h4>
+        <a href="services.html">Peaceful Stays</a>
+        <a href="services.html">Forest Bathing</a>
+        <a href="services.html">Mindfulness</a>
+        <a href="services.html">Private Retreats</a>
+        <a href="services.html">Seasonal Events</a>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <a href="contact.html">Directions</a>
+        <a href="contact.html">Book a Stay</a>
+        <a href="contact.html">Gift Certificates</a>
+        <a href="contact.html">Group Retreats</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Shinrin-Yoku Sanctuary. All rights reserved.</span>
+      <div class="social-links">
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="Facebook">📘</a>
+        <a href="#" aria-label="Pinterest">📌</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

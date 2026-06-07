@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shinrin-Yoku Sanctuary — Forest Retreat, Berkshire Hills</title>
+  <meta name="description" content="Hidden in the quiet Hilltowns near the Berkshires, Shinrin-Yoku Sanctuary is a 47-acre private forest retreat offering peaceful stays, guided nature immersion, and restorative experiences.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Home-specific */
+    .home-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .home-intro-text { display: flex; flex-direction: column; gap: 1.5rem; }
+    .home-intro-img { position: relative; }
+    .home-intro-img .main-img { border-radius: var(--radius); aspect-ratio: 4/5; overflow: hidden; background: var(--green-pale); }
+    .home-intro-img .main-img img { width: 100%; height: 100%; object-fit: cover; }
+    .home-intro-img .accent-img {
+      position: absolute;
+      bottom: -2rem; right: -2rem;
+      width: 55%;
+      aspect-ratio: 1;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 6px solid var(--cream);
+      background: var(--green-light);
+    }
+    .home-intro-img .accent-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .experience-strip {
+      background: var(--green-deep);
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .exp-item {
+      padding: 3rem 2rem;
+      border-right: 1px solid rgba(245,240,232,0.08);
+      text-align: center;
+      transition: background var(--transition);
+    }
+    .exp-item:last-child { border-right: none; }
+    .exp-item:hover { background: rgba(255,255,255,0.04); }
+    .exp-item .exp-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .exp-item h4 { font-family: var(--font-sans); font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream); font-weight: 600; margin-bottom: 0.4rem; }
+    .exp-item p { font-size: 0.85rem; color: rgba(245,240,232,0.55); max-width: none; }
+
+    .preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: auto auto; gap: 1rem; }
+    .preview-grid .item-tall { grid-row: span 2; }
+    .preview-item { aspect-ratio: 1; border-radius: var(--radius); overflow: hidden; background: var(--green-pale); position: relative; }
+    .preview-item.item-tall { aspect-ratio: auto; }
+    .preview-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .preview-item:hover img { transform: scale(1.04); }
+    .preview-link {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,58,42,0.75) 0%, transparent 50%);
+      display: flex; align-items: flex-end;
+      padding: 1rem;
+      opacity: 0; transition: opacity var(--transition);
+    }
+    .preview-item:hover .preview-link { opacity: 1; }
+    .preview-link a { color: var(--cream); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; border-bottom: 1px solid rgba(245,240,232,0.5); padding-bottom: 2px; }
+
+    @media (max-width: 900px) {
+      .home-intro { grid-template-columns: 1fr; gap: 3rem; }
+      .home-intro-img .accent-img { display: none; }
+      .experience-strip { grid-template-columns: 1fr 1fr; }
+      .preview-grid { grid-template-columns: 1fr 1fr; }
+      .preview-grid .item-tall { grid-row: span 1; }
+      .preview-item.item-tall { aspect-ratio: 1; }
+    }
+    @media (max-width: 600px) {
+      .experience-strip { grid-template-columns: 1fr 1fr; }
+      .preview-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo">
+    <span class="logo-main">SYS</span>
+    <span class="logo-sub">Shinrin-Yoku Sanctuary</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Experiences</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="btn btn-outline">Book a Stay</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="nav-mobile">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Experiences</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-outline">Book a Stay</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <!-- Replace src with your own forest photo -->
+    <img src="images/hero-forest.jpg" alt="Forest canopy at Shinrin-Yoku Sanctuary">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content fade-in">
+    <span class="section-label">Western Massachusetts · Berkshire Hilltowns</span>
+    <h1>Where the Forest<br><em>Becomes the Medicine</em></h1>
+    <p>Hidden in 47 private acres of woodland, Shinrin-Yoku Sanctuary invites you to slow down, breathe deeply, and rediscover calm through the ancient practice of forest immersion.</p>
+    <div class="hero-cta">
+      <a href="services.html" class="btn btn-primary">Explore Experiences</a>
+      <a href="contact.html" class="btn btn-outline">Book a Stay</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- EXPERIENCE STRIP -->
+<div class="experience-strip">
+  <div class="exp-item">
+    <div class="exp-icon">🌲</div>
+    <h4>47 Private Acres</h4>
+    <p>Secluded woodland trails and untouched forest</p>
+  </div>
+  <div class="exp-item">
+    <div class="exp-icon">🏡</div>
+    <h4>Peaceful Stays</h4>
+    <p>Comfortable accommodations surrounded by nature</p>
+  </div>
+  <div class="exp-item">
+    <div class="exp-icon">🧘</div>
+    <h4>Guided Immersion</h4>
+    <p>Expert-led Shinrin-Yoku forest bathing sessions</p>
+  </div>
+  <div class="exp-item">
+    <div class="exp-icon">🍂</div>
+    <h4>Four Seasons</h4>
+    <p>A unique sanctuary in every season of the year</p>
+  </div>
+</div>
+
+<!-- INTRO SECTION -->
+<section class="section section-light">
+  <div class="section-inner">
+    <div class="home-intro">
+      <div class="home-intro-text fade-in">
+        <span class="section-label">Our Story</span>
+        <h2>A Sanctuary Born From the Forest Itself</h2>
+        <p>Inspired by the Japanese practice of <em>Shinrin-Yoku</em> — forest bathing — this retreat was created as a place where nature does the healing. In the quiet Hilltowns near the Berkshires, SYS offers something rare: unhurried time, deep stillness, and the restorative presence of ancient woodland.</p>
+        <p>Whether you come for a night, a weekend, or a guided experience, you leave feeling something you didn't expect — whole.</p>
+        <a href="about.html" class="btn btn-dark">Learn Our Story</a>
+      </div>
+      <div class="home-intro-img fade-in">
+        <div class="main-img">
+          <img src="images/about-forest.jpg" alt="Sunlight through forest canopy">
+        </div>
+        <div class="accent-img">
+          <img src="images/about-trail.jpg" alt="Woodland trail at SYS">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-block fade-in">
+  <blockquote>
+    "In every walk with nature, one receives far more than he seeks."
+  </blockquote>
+  <cite>— John Muir</cite>
+</div>
+
+<!-- STATS -->
+<section class="section section-mid">
+  <div class="section-inner">
+    <div class="stats-row fade-in">
+      <div>
+        <div class="stat-num" data-target="47" data-suffix=" ac">47 ac</div>
+        <div class="stat-label">Private Woodland</div>
+      </div>
+      <div>
+        <div class="stat-num" data-target="4" data-suffix="">4</div>
+        <div class="stat-label">Seasons Open</div>
+      </div>
+      <div>
+        <div class="stat-num" data-target="12" data-suffix="+">12+</div>
+        <div class="stat-label">Curated Experiences</div>
+      </div>
+      <div>
+        <div class="stat-num" data-target="500" data-suffix="+">500+</div>
+        <div class="stat-label">Guests Restored</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES PREVIEW -->
+<section class="section section-light">
+  <div class="section-inner">
+    <div class="section-header centered fade-in">
+      <span class="section-label">What We Offer</span>
+      <h2>Restorative Experiences for Body &amp; Mind</h2>
+      <p>Each offering at SYS is designed to deepen your connection with the forest and with yourself.</p>
+    </div>
+    <div class="card-grid">
+      <div class="card fade-in">
+        <div class="card-img"><img src="images/service-stays.jpg" alt="Forest stay accommodation"></div>
+        <div class="card-body">
+          <h3>Peaceful Stays</h3>
+          <p>Rest in comfortable accommodations nestled in the heart of the woodland. Wake to birdsong. Sleep under the stars.</p>
+          <br><a href="services.html" class="btn btn-dark" style="margin-top:auto;">Learn More</a>
+        </div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-img"><img src="images/service-bathing.jpg" alt="Forest bathing guided walk"></div>
+        <div class="card-body">
+          <h3>Forest Bathing</h3>
+          <p>Guided Shinrin-Yoku walks led by certified nature therapy guides. Let the forest breathe you back to life.</p>
+          <br><a href="services.html" class="btn btn-dark" style="margin-top:auto;">Learn More</a>
+        </div>
+      </div>
+      <div class="card fade-in">
+        <div class="card-img"><img src="images/service-mindfulness.jpg" alt="Outdoor mindfulness session"></div>
+        <div class="card-body">
+          <h3>Mindfulness &amp; Meditation</h3>
+          <p>Immersive outdoor meditation, breathwork, and reflection practices rooted in the rhythms of the natural world.</p>
+          <br><a href="services.html" class="btn btn-dark" style="margin-top:auto;">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:3rem;" class="fade-in">
+      <a href="services.html" class="btn btn-primary">View All Experiences</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY PREVIEW -->
+<section class="section section-forest">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="section-label">The Sanctuary</span>
+      <h2>A Glimpse of the Forest</h2>
+    </div>
+    <div class="preview-grid fade-in">
+      <div class="preview-item item-tall">
+        <img src="images/gallery-1.jpg" alt="Forest at SYS">
+        <div class="preview-link"><a href="gallery.html">View Gallery</a></div>
+      </div>
+      <div class="preview-item">
+        <img src="images/gallery-2.jpg" alt="Trail through woodland">
+        <div class="preview-link"><a href="gallery.html">View Gallery</a></div>
+      </div>
+      <div class="preview-item">
+        <img src="images/gallery-3.jpg" alt="Morning mist in forest">
+        <div class="preview-link"><a href="gallery.html">View Gallery</a></div>
+      </div>
+      <div class="preview-item">
+        <img src="images/gallery-4.jpg" alt="Forest floor details">
+        <div class="preview-link"><a href="gallery.html">View Gallery</a></div>
+      </div>
+      <div class="preview-item">
+        <img src="images/gallery-5.jpg" alt="Peaceful forest seating area">
+        <div class="preview-link"><a href="gallery.html">View Gallery</a></div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:2.5rem;" class="fade-in">
+      <a href="gallery.html" class="btn btn-outline">Explore Full Gallery</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="section section-dark" style="text-align:center;">
+  <div class="section-inner">
+    <div class="fade-in">
+      <span class="section-label">Begin Your Journey</span>
+      <h2 style="color:var(--cream); max-width:600px; margin:0 auto 1rem;">Ready to Let the Forest Heal You?</h2>
+      <p style="color:rgba(245,240,232,0.7); max-width:50ch; margin:0 auto 2.5rem;">Every stay, every walk, every quiet moment at SYS is a step toward restoration. The forest is waiting.</p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-primary">Book a Stay</a>
+        <a href="services.html" class="btn btn-outline">See Experiences</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-main">SYS</div>
+        <div class="logo-sub">Shinrin-Yoku Sanctuary</div>
+        <p>47 private acres of forest restoration in the Berkshire Hilltowns of western Massachusetts.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Experiences</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Experiences</h4>
+        <a href="services.html">Peaceful Stays</a>
+        <a href="services.html">Forest Bathing</a>
+        <a href="services.html">Mindfulness</a>
+        <a href="services.html">Private Retreats</a>
+        <a href="services.html">Seasonal Events</a>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <a href="contact.html">Directions</a>
+        <a href="contact.html">Book a Stay</a>
+        <a href="contact.html">Gift Certificates</a>
+        <a href="contact.html">Group Retreats</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Shinrin-Yoku Sanctuary. All rights reserved.</span>
+      <div class="social-links">
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="Facebook">📘</a>
+        <a href="#" aria-label="Pinterest">📌</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

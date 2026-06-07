@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Shinrin-Yoku Sanctuary</title>
+  <meta name="description" content="Photos and videos from Shinrin-Yoku Sanctuary — 47 acres of forest, seasonal beauty, guided walks, and peaceful stays in the Berkshire Hilltowns.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Override page-hero for gallery */
+    .gallery-page-hero {
+      height: 38vh;
+      min-height: 280px;
+      background: var(--green-deep);
+      display: flex;
+      align-items: flex-end;
+      padding: 3rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .gallery-page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 20% 80%, rgba(45,90,61,0.7) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 20%, rgba(74,124,94,0.3) 0%, transparent 50%);
+    }
+    .gallery-page-hero .page-hero-content { position: relative; z-index: 2; }
+
+    /* Placeholder tiles — shown when no real images loaded */
+    .masonry-placeholder {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(245,240,232,0.25);
+      font-size: 2.5rem;
+      user-select: none;
+    }
+
+    /* Heights for placeholder tiles to create masonry rhythm */
+    .ph-1 { height: 320px; }
+    .ph-2 { height: 220px; }
+    .ph-3 { height: 280px; }
+    .ph-4 { height: 380px; }
+    .ph-5 { height: 240px; }
+    .ph-6 { height: 300px; }
+    .ph-7 { height: 200px; }
+    .ph-8 { height: 360px; }
+    .ph-9 { height: 260px; }
+    .ph-10 { height: 180px; }
+    .ph-11 { height: 340px; }
+    .ph-12 { height: 210px; }
+
+    /* When real images present, hide placeholder bg */
+    .masonry-item img ~ .masonry-placeholder,
+    .masonry-item video ~ .masonry-placeholder { display: none; }
+
+    .gallery-intro { max-width: 600px; }
+
+    /* Upload hint */
+    .upload-hint {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav scrolled" id="nav">
+  <a href="index.html" class="nav-logo">
+    <span class="logo-main">SYS</span>
+    <span class="logo-sub">Shinrin-Yoku Sanctuary</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Experiences</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="btn btn-outline">Book a Stay</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Experiences</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-outline">Book a Stay</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="gallery-page-hero">
+  <div class="page-hero-content">
+    <span class="section-label">The Sanctuary in Every Season</span>
+    <h1 style="color:var(--cream); font-size:clamp(2rem,5vw,3.2rem);">The Gallery</h1>
+    <p style="color:rgba(245,240,232,0.7); margin-top:0.5rem; font-size:1rem;">Photos and videos from the forest, the trails, and the quiet spaces between.</p>
+  </div>
+</div>
+
+<!-- GALLERY SECTION -->
+<section class="section section-light" style="padding-top:3rem;">
+  <div class="section-inner">
+
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1.5rem; margin-bottom:1rem;" class="fade-in">
+      <div class="gallery-intro">
+        <span class="section-label">Browse</span>
+        <h2 style="font-size:1.8rem;">Moments From the Land</h2>
+        <p style="font-size:0.92rem; margin-top:0.4rem;">Filter by season or category, or drop your own photos below to add them to the collection.</p>
+      </div>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="gallery-filters fade-in">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="forest">Forest</button>
+      <button class="filter-btn" data-filter="seasons">Seasons</button>
+      <button class="filter-btn" data-filter="stays">Stays</button>
+      <button class="filter-btn" data-filter="experiences">Experiences</button>
+      <button class="filter-btn" data-filter="video">Video</button>
+    </div>
+
+    <!-- UPLOAD ZONE -->
+    <label class="upload-zone fade-in">
+      <input type="file" accept="image/*,video/*" multiple>
+      <div class="upload-icon">📁</div>
+      <p><strong>Drop your photos &amp; videos here</strong> — or click to browse</p>
+      <p style="margin-top:0.3rem; font-size:0.82rem;">Supports JPG, PNG, WebP, MP4, MOV · Files stay local in your browser</p>
+    </label>
+
+    <!-- MASONRY GRID -->
+    <div class="masonry fade-in">
+
+      <!-- Placeholder tiles — replace with <img> tags once you have photos -->
+      <div class="masonry-item" data-category="forest">
+        <img src="images/gallery-forest-1.jpg" alt="Morning mist through oak canopy" loading="lazy">
+        <div class="masonry-placeholder ph-1">🌲</div>
+        <div class="overlay"><span>Forest</span></div>
+      </div>
+
+      <div class="masonry-item" data-category="stays">
+        <img src="images/gallery-stays-1.jpg" alt="Woodland cabin exterior" loading="lazy">
+        <div class="masonry-placeholder ph-2">🏡</div>
+        <div class="overlay"><span>Stays</span></div>
+      </div>
+
+      <div class="masonry-item" data-category="seasons">
+        <img src="images/gallery-fall-1.jpg" alt="Autumn foliage on the ridge trail" loading="lazy">
+        <div class="masonry-placeholder ph-3">🍂</div>
+        <div class="overlay"><span>Autumn</span></div>
+      </div>
+
+      <div class="masonry-item" data-category="experiences">
+        <img src="images/gallery-exp-1.jpg" alt="Guided forest bathing session" loading="lazy">
+        <div class="masonry-placeholder ph-4">🧘</div>
+        <div class="overlay"><span>Experiences</span></div>
+      </div>
+
+      <div class="masonry-item" data-category="forest">
+        <img src="images/gallery-forest-2.jpg" alt="Sunlight filtering through hemlock grove" loading="lazy">
+        <div class="masonry-placeholder ph-5">☀️</div>
+        <div class="overlay"><span>Forest</span></div>
+      </div>
+
+      <div class="masonry-item" data-category="seasons">
+        <img src="images/gallery-winter-1.jpg" alt="Snow-covered forest floor" loading="lazy">
+        <div class="masonry-placeholder ph-6">❄️</div>
+        <div class="overlay"><span>Winter</span></div>
+      </div>
+
+      <div class="masonry-item" data-category="stays">
+        <img src="images/gallery-stays-2.jpg" alt="Interior of guesthouse suite" loading="lazy">
+        <div class="masonry-placeholder ph-7">🪵</div>
+        <div class="overlay"><span>Stays</span></div>
+      </div>
+
+      <div class="masonry-item" data-category="forest">
+        <img src="images/gallery-forest-3.jpg" alt="Native stream running through property" loading="lazy">
+        <div class="masonry-placeholder ph-8">💧</div>
+        <div class="overlay"><span>Forest</span></div>
+      </div>
+
+      <div class="masonry-item" data-category="experiences">
+        <img src="images/gallery-exp-2.jpg" alt="Forest tea ceremony close-up" loading="lazy">
+        <div class="masonry-placeholder ph-9">🍵</div>
+        <div class="overlay"><span>Experiences</span></div>
+      </div>
+
+      <div class="masonry-item" data-category="seasons">
+        <img src="images/gallery-spring-1.jpg" alt="Spring wildflowers along the trail" loading="lazy">
+        <div class="masonry-placeholder ph-10">🌸</div>
+        <div class="overlay"><span>Spring</span></div>
+      </div>
+
+      <div class="masonry-item" data-category="forest">
+        <img src="images/gallery-forest-4.jpg" alt="Old growth maple in late afternoon light" loading="lazy">
+        <div class="masonry-placeholder ph-11">🍃</div>
+        <div class="overlay"><span>Forest</span></div>
+      </div>
+
+      <div class="masonry-item" data-category="stays">
+        <img src="images/gallery-stays-3.jpg" alt="Outdoor sitting area at dusk" loading="lazy">
+        <div class="masonry-placeholder ph-2">🌙</div>
+        <div class="overlay"><span>Stays</span></div>
+      </div>
+
+      <div class="masonry-item" data-category="seasons">
+        <img src="images/gallery-summer-1.jpg" alt="Summer canopy seen from forest floor" loading="lazy">
+        <div class="masonry-placeholder ph-3">🌿</div>
+        <div class="overlay"><span>Summer</span></div>
+      </div>
+
+      <div class="masonry-item" data-category="experiences">
+        <img src="images/gallery-exp-3.jpg" alt="Morning breathwork session in forest clearing" loading="lazy">
+        <div class="masonry-placeholder ph-5">🌬️</div>
+        <div class="overlay"><span>Experiences</span></div>
+      </div>
+
+      <div class="masonry-item" data-category="forest">
+        <img src="images/gallery-forest-5.jpg" alt="Lichen-covered stone wall in the woods" loading="lazy">
+        <div class="masonry-placeholder ph-4">🪨</div>
+        <div class="overlay"><span>Forest</span></div>
+      </div>
+
+    </div><!-- end .masonry -->
+
+    <p class="upload-hint fade-in">
+      Images that fail to load show placeholder tiles — add your own photos by dropping them in the upload zone above.
+    </p>
+
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox">
+  <div class="lightbox-content">
+    <button class="lightbox-close" aria-label="Close">✕</button>
+    <img src="" alt="Gallery image">
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="section section-dark" style="text-align:center;">
+  <div class="section-inner fade-in">
+    <span class="section-label">Come See It in Person</span>
+    <h2 style="color:var(--cream); max-width:500px; margin:0 auto 1rem;">No Photo Captures the Smell of Rain on Pine Needles</h2>
+    <p style="color:rgba(245,240,232,0.68); max-width:46ch; margin:0 auto 2.5rem;">The gallery is just a hint of what's here. The forest is the real thing.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="contact.html" class="btn btn-primary">Book a Stay</a>
+      <a href="services.html" class="btn btn-outline">See Experiences</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-main">SYS</div>
+        <div class="logo-sub">Shinrin-Yoku Sanctuary</div>
+        <p>47 private acres of forest restoration in the Berkshire Hilltowns of western Massachusetts.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Experiences</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Experiences</h4>
+        <a href="services.html">Peaceful Stays</a>
+        <a href="services.html">Forest Bathing</a>
+        <a href="services.html">Mindfulness</a>
+        <a href="services.html">Private Retreats</a>
+        <a href="services.html">Seasonal Events</a>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <a href="contact.html">Directions</a>
+        <a href="contact.html">Book a Stay</a>
+        <a href="contact.html">Gift Certificates</a>
+        <a href="contact.html">Group Retreats</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Shinrin-Yoku Sanctuary. All rights reserved.</span>
+      <div class="social-links">
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="Facebook">📘</a>
+        <a href="#" aria-label="Pinterest">📌</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Hide broken images gracefully — show placeholder instead
+  document.querySelectorAll('.masonry-item img').forEach(img => {
+    img.addEventListener('error', () => {
+      img.style.display = 'none';
+      const ph = img.closest('.masonry-item').querySelector('.masonry-placeholder');
+      if (ph) ph.style.display = 'flex';
+    });
+    // If already broken (cached error)
+    if (!img.complete || img.naturalWidth === 0) {
+      img.dispatchEvent(new Event('error'));
+    }
+  });
+</script>
+</body>
+</html>

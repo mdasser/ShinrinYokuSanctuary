@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experiences — Shinrin-Yoku Sanctuary</title>
+  <meta name="description" content="Explore guided forest bathing, peaceful stays, mindfulness sessions, private retreats, and seasonal experiences at Shinrin-Yoku Sanctuary in western Massachusetts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .experience-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .experience-detail:last-child { border-bottom: none; }
+    .experience-detail.reverse .exp-img { order: -1; }
+    .exp-img { border-radius: var(--radius); aspect-ratio: 4/3; overflow: hidden; background: var(--green-pale); }
+    .exp-img img { width: 100%; height: 100%; object-fit: cover; }
+    .exp-detail-text { display: flex; flex-direction: column; gap: 1.25rem; }
+    .exp-detail-text h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); }
+    .exp-meta { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .exp-meta-item { display: flex; flex-direction: column; }
+    .exp-meta-item .meta-label { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-light); font-weight: 600; margin-bottom: 0.2rem; }
+    .exp-meta-item .meta-value { font-family: var(--font-serif); font-size: 1.3rem; color: var(--green-mid); }
+    .includes-list { display: flex; flex-direction: column; gap: 0.4rem; }
+    .includes-list li { font-size: 0.9rem; color: var(--text-mid); display: flex; gap: 0.6rem; align-items: baseline; }
+    .includes-list li::before { content: '✦'; color: var(--gold); font-size: 0.6rem; flex-shrink: 0; }
+
+    .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .package-card {
+      border: 1px solid var(--cream-dark);
+      border-radius: var(--radius);
+      padding: 2rem;
+      background: var(--white);
+      display: flex; flex-direction: column; gap: 1rem;
+      transition: box-shadow var(--transition), transform var(--transition);
+      position: relative;
+    }
+    .package-card:hover { box-shadow: 0 8px 32px rgba(26,58,42,0.1); transform: translateY(-3px); }
+    .package-card.featured {
+      border-color: var(--green-mid);
+      border-width: 2px;
+    }
+    .featured-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--green-mid); color: var(--cream);
+      font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.3rem 1rem; border-radius: 99px; font-weight: 600; white-space: nowrap;
+    }
+    .package-name { font-family: var(--font-serif); font-size: 1.5rem; color: var(--green-deep); }
+    .package-price { font-family: var(--font-serif); font-size: 2.2rem; color: var(--gold); line-height: 1; }
+    .package-price span { font-family: var(--font-sans); font-size: 0.78rem; color: var(--text-light); }
+    .package-desc { font-size: 0.88rem; color: var(--text-mid); }
+    .package-includes { display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
+    .package-includes li { font-size: 0.85rem; color: var(--text-mid); display: flex; gap: 0.5rem; }
+    .package-includes li::before { content: '✓'; color: var(--green-mid); font-weight: 700; flex-shrink: 0; }
+
+    .faq { display: flex; flex-direction: column; gap: 0; }
+    .faq-item { border-bottom: 1px solid var(--cream-dark); }
+    .faq-q {
+      width: 100%; background: none; border: none;
+      text-align: left; padding: 1.5rem 0;
+      font-family: var(--font-serif); font-size: 1.2rem; color: var(--green-deep);
+      cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    }
+    .faq-q .faq-icon { font-size: 1.4rem; color: var(--green-light); transition: transform var(--transition); flex-shrink: 0; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a { display: none; padding-bottom: 1.5rem; }
+    .faq-item.open .faq-a { display: block; }
+    .faq-a p { font-size: 0.95rem; }
+
+    @media (max-width: 900px) {
+      .experience-detail { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 0; }
+      .experience-detail.reverse .exp-img { order: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav scrolled" id="nav">
+  <a href="index.html" class="nav-logo">
+    <span class="logo-main">SYS</span>
+    <span class="logo-sub">Shinrin-Yoku Sanctuary</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Experiences</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="btn btn-outline">Book a Stay</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Experiences</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-outline">Book a Stay</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg">
+    <img src="images/services-hero.jpg" alt="Forest path at SYS">
+  </div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="section-label">Curated Experiences</span>
+    <h1>Rest. Wander. Restore.</h1>
+    <p>Every offering at SYS is designed around one idea: that when you give a person quiet time in the forest, something in them begins to heal.</p>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="section section-light" style="padding-bottom:2rem;">
+  <div class="section-inner">
+    <div class="section-header centered fade-in" style="max-width:680px; margin:0 auto 1rem;">
+      <span class="section-label">How It Works</span>
+      <h2>Designed for Depth, Not Distraction</h2>
+      <p>Unlike conventional wellness retreats, SYS is intentionally simple. No schedules unless you want them, no performances, no pressure. Each experience is an invitation — not an obligation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCES DETAIL -->
+<section class="section section-light" style="padding-top: 1rem;">
+  <div class="section-inner">
+
+    <div class="experience-detail fade-in">
+      <div class="exp-img"><img src="images/service-stays.jpg" alt="Peaceful forest accommodation"></div>
+      <div class="exp-detail-text">
+        <span class="section-label">Accommodation</span>
+        <h2>Peaceful Stays</h2>
+        <p>Your home in the forest. Rest in a thoughtfully furnished space where every detail — the materials, the light, the sounds outside your window — reminds you that you are part of something living.</p>
+        <p>Accommodations range from a private woodland cabin to a light-filled guesthouse suite. All feature natural materials, handmade furnishings, and direct access to the trail network.</p>
+        <div class="exp-meta">
+          <div class="exp-meta-item">
+            <span class="meta-label">Duration</span>
+            <span class="meta-value">1–7 nights</span>
+          </div>
+          <div class="exp-meta-item">
+            <span class="meta-label">Starting from</span>
+            <span class="meta-value">$195 / night</span>
+          </div>
+          <div class="exp-meta-item">
+            <span class="meta-label">Guests</span>
+            <span class="meta-value">1–4 per space</span>
+          </div>
+        </div>
+        <ul class="includes-list">
+          <li>Private access to the full 47-acre trail network</li>
+          <li>Morning forest welcome kit (local tea, foraging journal, trail map)</li>
+          <li>Linen &amp; towels made from organic materials</li>
+          <li>Optional guided walk add-on (see below)</li>
+        </ul>
+        <a href="contact.html" class="btn btn-dark">Inquire &amp; Book</a>
+      </div>
+    </div>
+
+    <div class="experience-detail reverse fade-in">
+      <div class="exp-img"><img src="images/service-bathing.jpg" alt="Guided forest bathing walk"></div>
+      <div class="exp-detail-text">
+        <span class="section-label">Guided Experience</span>
+        <h2>Shinrin-Yoku Forest Bathing</h2>
+        <p>Our signature offering. Led by a certified Shinrin-Yoku guide, this two-to-three hour slow walk through the forest is not exercise — it is a practice. You will be invited to pause, to notice, to breathe, and to let the forest meet you.</p>
+        <p>Guided walks follow a gentle, unhurried route through the property's most immersive forest sections. Sessions close with a shared tea ceremony using plants foraged from the land.</p>
+        <div class="exp-meta">
+          <div class="exp-meta-item">
+            <span class="meta-label">Duration</span>
+            <span class="meta-value">2–3 hours</span>
+          </div>
+          <div class="exp-meta-item">
+            <span class="meta-label">From</span>
+            <span class="meta-value">$85 / person</span>
+          </div>
+          <div class="exp-meta-item">
+            <span class="meta-label">Group size</span>
+            <span class="meta-value">2–8 guests</span>
+          </div>
+        </div>
+        <ul class="includes-list">
+          <li>Certified Shinrin-Yoku guide throughout</li>
+          <li>Sensory invitation practices along the route</li>
+          <li>Closing forest tea ceremony with foraged botanicals</li>
+          <li>Reflection journal &amp; take-home field guide</li>
+        </ul>
+        <a href="contact.html" class="btn btn-dark">Book a Walk</a>
+      </div>
+    </div>
+
+    <div class="experience-detail fade-in">
+      <div class="exp-img"><img src="images/service-mindfulness.jpg" alt="Outdoor meditation at SYS"></div>
+      <div class="exp-detail-text">
+        <span class="section-label">Mindfulness &amp; Wellbeing</span>
+        <h2>Forest Meditation &amp; Breathwork</h2>
+        <p>Guided mindfulness and breathwork sessions held entirely outdoors, in clearing spaces and forest groves chosen for their natural resonance. Sessions are grounded in MBSR (Mindfulness-Based Stress Reduction) and adapted for the forest environment.</p>
+        <p>Available as standalone morning sessions or as part of a longer stay package. Perfect for those new to meditation and for experienced practitioners alike.</p>
+        <div class="exp-meta">
+          <div class="exp-meta-item">
+            <span class="meta-label">Duration</span>
+            <span class="meta-value">60–90 min</span>
+          </div>
+          <div class="exp-meta-item">
+            <span class="meta-label">From</span>
+            <span class="meta-value">$55 / person</span>
+          </div>
+          <div class="exp-meta-item">
+            <span class="meta-label">Best for</span>
+            <span class="meta-value">All levels</span>
+          </div>
+        </div>
+        <ul class="includes-list">
+          <li>Guided outdoor mindfulness or breathwork practice</li>
+          <li>Seasonal forest sit in a chosen woodland clearing</li>
+          <li>Optional journaling time before or after</li>
+          <li>Available at sunrise or in the late afternoon</li>
+        </ul>
+        <a href="contact.html" class="btn btn-dark">Reserve a Session</a>
+      </div>
+    </div>
+
+    <div class="experience-detail reverse fade-in">
+      <div class="exp-img"><img src="images/service-retreat.jpg" alt="Private retreat at SYS"></div>
+      <div class="exp-detail-text">
+        <span class="section-label">Private &amp; Group</span>
+        <h2>Custom Retreat Experiences</h2>
+        <p>For groups seeking something more intentional — a team offsite, a wellness retreat for a small group, a couples' renewal, or a solo deep-dive — we design fully custom multi-day experiences around your needs and the season.</p>
+        <p>Private retreats include exclusive use of portions of the property, personalized programming, and support from our full guide team. Contact us to begin the conversation.</p>
+        <div class="exp-meta">
+          <div class="exp-meta-item">
+            <span class="meta-label">Duration</span>
+            <span class="meta-value">2–5 days</span>
+          </div>
+          <div class="exp-meta-item">
+            <span class="meta-label">Pricing</span>
+            <span class="meta-value">Custom</span>
+          </div>
+          <div class="exp-meta-item">
+            <span class="meta-label">Group size</span>
+            <span class="meta-value">2–16 guests</span>
+          </div>
+        </div>
+        <ul class="includes-list">
+          <li>Fully customized itinerary &amp; programming</li>
+          <li>Exclusive property access during your stay</li>
+          <li>Full guide team support throughout</li>
+          <li>Catering and dietary needs accommodated on request</li>
+        </ul>
+        <a href="contact.html" class="btn btn-dark">Start a Conversation</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="section section-mid">
+  <div class="section-inner">
+    <div class="section-header centered fade-in">
+      <span class="section-label">Simple Packages</span>
+      <h2>Choose Your Path Into the Forest</h2>
+      <p>Not sure where to start? Our packages make it easy.</p>
+    </div>
+    <div class="packages-grid fade-in">
+      <div class="package-card">
+        <div class="package-name">Forest Day</div>
+        <div class="package-price">$120 <span>/ person</span></div>
+        <p class="package-desc">A full day of guided immersion — no overnight stay required.</p>
+        <ul class="package-includes">
+          <li>Guided Shinrin-Yoku walk (2–3 hrs)</li>
+          <li>Outdoor mindfulness session (60 min)</li>
+          <li>Forest tea ceremony</li>
+          <li>Trail access for the full day</li>
+          <li>Welcome journal &amp; field guide</li>
+        </ul>
+        <a href="contact.html" class="btn btn-dark" style="margin-top:auto;">Book Now</a>
+      </div>
+      <div class="package-card featured">
+        <div class="featured-badge">Most Popular</div>
+        <div class="package-name">Weekend Sanctuary</div>
+        <div class="package-price">$480 <span>/ person (2 nights)</span></div>
+        <p class="package-desc">The full SYS experience — arrive Friday, leave renewed on Sunday.</p>
+        <ul class="package-includes">
+          <li>2 nights in forest accommodation</li>
+          <li>2 guided forest bathing walks</li>
+          <li>1 morning breathwork session</li>
+          <li>Forest tea ceremonies daily</li>
+          <li>Unlimited private trail access</li>
+          <li>Welcome kit &amp; foraging journal</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:auto;">Book Now</a>
+      </div>
+      <div class="package-card">
+        <div class="package-name">Deep Rest</div>
+        <div class="package-price">$880 <span>/ person (5 nights)</span></div>
+        <p class="package-desc">For those who need more than a weekend. A true forest immersion.</p>
+        <ul class="package-includes">
+          <li>5 nights in forest accommodation</li>
+          <li>Daily guided Shinrin-Yoku sessions</li>
+          <li>Morning &amp; evening mindfulness practices</li>
+          <li>One private naturalist walk</li>
+          <li>Night sky observation session</li>
+          <li>Full guide team availability throughout</li>
+        </ul>
+        <a href="contact.html" class="btn btn-dark" style="margin-top:auto;">Book Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-light">
+  <div class="section-inner" style="max-width:760px;">
+    <div class="section-header fade-in">
+      <span class="section-label">Questions</span>
+      <h2>What You Might Be Wondering</h2>
+    </div>
+    <div class="faq fade-in">
+      <div class="faq-item">
+        <button class="faq-q">Do I need to be physically fit for forest bathing? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Not at all. Shinrin-Yoku walks are intentionally slow and unhurried — the opposite of a hike. We move at the pace of the forest, not a fitness goal. The trails we use are gentle and suitable for most mobility levels. Please let us know about any specific needs when you book.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What is the best season to visit? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>Every season at SYS offers something irreplaceable. Spring brings wildflowers and birdsong; summer, a deep green canopy and warm evening air; autumn, the legendary Berkshire foliage; winter, the rare hush of snow-covered woodland. We are genuinely a four-season sanctuary and recommend visiting in the season that calls to you most.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I bring children? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>SYS is designed as a quiet, contemplative space and is best suited for adults and older teenagers. Children are welcome on stays (ages 12+), but some guided experiences are adults-only. We're happy to discuss your family's needs — just reach out before booking.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Are pets allowed? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>We love animals, but to preserve the wildlife habitat and the meditative atmosphere of the sanctuary, we ask that guests do not bring pets. We appreciate your understanding.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How far in advance should I book? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>We recommend booking 4–8 weeks in advance, especially for weekend stays and autumn visits. For private retreat inquiries, please reach out at least 8–12 weeks ahead so we can design the experience properly.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is there Wi-Fi? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><p>We offer limited Wi-Fi in accommodations for emergencies and essential use. We gently encourage guests to treat SYS as a digital-light space — not a rule, but an invitation. The forest works better when you're fully in it.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-dark" style="text-align:center;">
+  <div class="section-inner fade-in">
+    <span class="section-label">Ready to Begin</span>
+    <h2 style="color:var(--cream); max-width:560px; margin:0 auto 1rem;">The Forest Has Been Waiting for You</h2>
+    <p style="color:rgba(245,240,232,0.7); max-width:50ch; margin:0 auto 2.5rem;">Reach out to ask a question, customize an experience, or simply tell us what you're looking for. We'll find the right path together.</p>
+    <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-main">SYS</div>
+        <div class="logo-sub">Shinrin-Yoku Sanctuary</div>
+        <p>47 private acres of forest restoration in the Berkshire Hilltowns of western Massachusetts.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Experiences</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Experiences</h4>
+        <a href="services.html">Peaceful Stays</a>
+        <a href="services.html">Forest Bathing</a>
+        <a href="services.html">Mindfulness</a>
+        <a href="services.html">Private Retreats</a>
+        <a href="services.html">Seasonal Events</a>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <a href="contact.html">Directions</a>
+        <a href="contact.html">Book a Stay</a>
+        <a href="contact.html">Gift Certificates</a>
+        <a href="contact.html">Group Retreats</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Shinrin-Yoku Sanctuary. All rights reserved.</span>
+      <div class="social-links">
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="Facebook">📘</a>
+        <a href="#" aria-label="Pinterest">📌</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
