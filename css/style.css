@@ -122,6 +122,7 @@ p  { font-size: 1rem; color: var(--text-mid); max-width: 68ch; }
   height: 52px;
   width: auto;
   display: block;
+  filter: brightness(0) invert(1);
 }
 /* Keep text fallback hidden */
 .nav-logo .logo-main,
@@ -530,7 +531,7 @@ p  { font-size: 1rem; color: var(--text-mid); max-width: 68ch; }
 .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
 .footer-brand .logo-main { display: none; }
 .footer-brand .logo-sub { display: none; }
-.footer-brand img { height: 64px; width: auto; display: block; margin-bottom: 0.5rem; }
+.footer-brand img { height: 64px; width: auto; display: block; margin-bottom: 0.5rem; filter: brightness(0) invert(1); }
 .footer-brand p { margin-top: 0.85rem; font-size: 0.88rem; line-height: 1.65; color: rgba(245,240,232,0.55); max-width: 26ch; }
 .footer-col h4 { font-family: var(--font-sans); font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-pale); margin-bottom: 1rem; font-weight: 600; }
 .footer-col a { display: block; font-size: 0.88rem; color: rgba(245,240,232,0.6); margin-bottom: 0.5rem; transition: color var(--transition); }
