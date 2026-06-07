@@ -183,7 +183,7 @@
 
       <!-- RIGHT: Form -->
       <div>
-        <form class="contact-form" id="contactForm" novalidate>
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">First Name *</label>
@@ -355,11 +355,31 @@
     });
   });
 
-  // Form submit — show success state
-  document.getElementById('contactForm').addEventListener('submit', e => {
+  // Form submit — send to Formspree, then show success state
+  document.getElementById('contactForm').addEventListener('submit', async e => {
     e.preventDefault();
-    document.getElementById('contactForm').style.display = 'none';
-    document.getElementById('formSuccess').classList.add('show');
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        form.style.display = 'none';
+        document.getElementById('formSuccess').classList.add('show');
+      } else {
+        btn.textContent = 'Something went wrong — please email us directly.';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Network error — please try again.';
+      btn.disabled = false;
+    }
   });
 </script>
 </body>
