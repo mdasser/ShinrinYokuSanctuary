@@ -93,6 +93,40 @@ if (filterBtns.length) {
   });
 }
 
+// ---- Video helpers (sound toggle) ----
+function attachVideoEvents(item) {
+  const video = item.querySelector('video');
+  if (!video) return;
+
+  // Hover: play muted
+  item.addEventListener('mouseenter', () => {
+    video.muted = true;
+    video.play().catch(() => {});
+  });
+  item.addEventListener('mouseleave', () => {
+    video.pause();
+    video.muted = true;
+    const btn = item.querySelector('.sound-btn');
+    if (btn) btn.textContent = '🔇';
+  });
+
+  // Sound toggle button
+  const soundBtn = item.querySelector('.sound-btn');
+  if (soundBtn) {
+    soundBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      video.muted = !video.muted;
+      soundBtn.textContent = video.muted ? '🔇' : '🔊';
+      if (!video.paused === false) video.play().catch(() => {});
+    });
+  }
+}
+
+// Attach to any pre-existing video tiles
+document.querySelectorAll('.masonry-item').forEach(item => {
+  if (item.querySelector('video')) attachVideoEvents(item);
+});
+
 // ---- Upload zone ----
 const uploadZone = document.querySelector('.upload-zone');
 const fileInput = document.querySelector('.upload-zone input[type="file"]');
@@ -116,7 +150,9 @@ if (uploadZone && fileInput && masonry) {
 
   function handleFiles(files) {
     Array.from(files).forEach(file => {
-      const isVideo = file.type.startsWith('video/');
+      // Accept image types + video types including .mov
+      const isVideo = file.type.startsWith('video/') ||
+                      file.name.toLowerCase().endsWith('.mov');
       const isImage = file.type.startsWith('image/');
       if (!isImage && !isVideo) return;
 
@@ -131,11 +167,13 @@ if (uploadZone && fileInput && masonry) {
           <img src="${url}" alt="${file.name}" loading="lazy">
           <div class="overlay"><span>Photo</span></div>`;
       } else {
+        // Live Photo / video — muted autoplay on hover, click to unmute
         item.innerHTML = `
           <video src="${url}" muted loop playsinline preload="metadata"></video>
+          <div class="video-badge">Live Photo</div>
+          <button class="sound-btn" title="Toggle sound">🔇</button>
           <div class="overlay"><span>Video</span></div>`;
-        item.addEventListener('mouseenter', () => item.querySelector('video').play());
-        item.addEventListener('mouseleave', () => item.querySelector('video').pause());
+        attachVideoEvents(item);
       }
       masonry.prepend(item);
     });
