@@ -1,6 +1,9 @@
 # Claude Code local config
 .claude/
 
+# Audio source files (large, not needed in repo)
+images/*.wav
+
 # OS files
 .DS_Store
 Thumbs.db
