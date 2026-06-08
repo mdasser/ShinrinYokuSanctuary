@@ -98,26 +98,43 @@ function attachVideoEvents(item) {
   const video = item.querySelector('video');
   if (!video) return;
 
-  // Hover: play muted
-  item.addEventListener('mouseenter', () => {
+  const soundBtn = item.querySelector('.sound-btn');
+
+  function startVideo() {
     video.muted = true;
     video.play().catch(() => {});
-  });
-  item.addEventListener('mouseleave', () => {
-    video.pause();
-    video.muted = true;
-    const btn = item.querySelector('.sound-btn');
-    if (btn) btn.textContent = '🔇';
+    item.classList.add('playing');
+  }
+
+  function stopVideo() {
+    // Only stop if user hasn't manually unmuted — unmuted means watching intentionally
+    if (video.muted) {
+      video.pause();
+      item.classList.remove('playing');
+      if (soundBtn) soundBtn.textContent = '🔇';
+    }
+  }
+
+  // Desktop: hover to play
+  item.addEventListener('mouseenter', startVideo);
+  item.addEventListener('mouseleave', stopVideo);
+
+  // Mobile / click to play (tap the tile itself, not the button)
+  item.addEventListener('click', e => {
+    if (soundBtn && soundBtn.contains(e.target)) return;
+    if (video.paused) {
+      startVideo();
+    }
   });
 
-  // Sound toggle button
-  const soundBtn = item.querySelector('.sound-btn');
+  // Sound button: toggle mute, works on both desktop and mobile
   if (soundBtn) {
     soundBtn.addEventListener('click', e => {
       e.stopPropagation();
       video.muted = !video.muted;
       soundBtn.textContent = video.muted ? '🔇' : '🔊';
-      if (!video.paused === false) video.play().catch(() => {});
+      // Start playing if not already (needed on mobile first tap)
+      if (video.paused) video.play().catch(() => {});
     });
   }
 }

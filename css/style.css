@@ -355,24 +355,27 @@ p  { font-size: 1rem; color: var(--text-mid); max-width: 68ch; }
   position: absolute;
   top: 0.65rem;
   right: 0.65rem;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: rgba(26,58,42,0.72);
-  border: 1px solid rgba(245,240,232,0.25);
+  background: rgba(26,58,42,0.82);
+  border: 1px solid rgba(245,240,232,0.35);
   color: var(--cream);
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 3;
+  z-index: 10;
   opacity: 0;
   transition: opacity var(--transition), background var(--transition);
   backdrop-filter: blur(4px);
   line-height: 1;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
-.masonry-item:hover .sound-btn { opacity: 1; }
+.masonry-item:hover .sound-btn,
+.masonry-item.playing .sound-btn { opacity: 1; }
 .sound-btn:hover { background: rgba(26,58,42,0.95); }
 
 /* Video badge */
