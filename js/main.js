@@ -127,14 +127,27 @@ function attachVideoEvents(item) {
     }
   });
 
-  // Sound button: toggle mute, works on both desktop and mobile
+  // Sound button: toggle mute
   if (soundBtn) {
     soundBtn.addEventListener('click', e => {
       e.stopPropagation();
+      e.preventDefault();
+      const wantUnmute = video.muted;
       video.muted = !video.muted;
       soundBtn.textContent = video.muted ? '🔇' : '🔊';
-      // Start playing if not already (needed on mobile first tap)
-      if (video.paused) video.play().catch(() => {});
+      // If unmuting and paused, restart play (browser needs this for audio unlock)
+      if (wantUnmute) {
+        video.play().then(() => {
+          video.muted = false;
+          soundBtn.textContent = '🔊';
+        }).catch(() => {
+          // Browser blocked audio — play muted instead
+          video.muted = true;
+          soundBtn.textContent = '🔇';
+        });
+      } else if (video.paused) {
+        video.play().catch(() => {});
+      }
     });
   }
 }

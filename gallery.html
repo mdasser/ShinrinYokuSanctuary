@@ -365,10 +365,6 @@
       const ph = img.closest('.masonry-item').querySelector('.masonry-placeholder');
       if (ph) ph.style.display = 'flex';
     });
-    // If already broken (cached error)
-    if (!img.complete || img.naturalWidth === 0) {
-      img.dispatchEvent(new Event('error'));
-    }
   });
 </script>
 </body>
