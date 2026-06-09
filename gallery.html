@@ -12,12 +12,13 @@
   <style>
     /* Override page-hero for gallery */
     .gallery-page-hero {
-      height: 38vh;
-      min-height: 280px;
+      height: 44vh;
+      min-height: 320px;
       background: var(--green-deep);
       display: flex;
       align-items: flex-end;
-      padding: 3rem 2.5rem;
+      padding: 3rem 2.5rem 3rem;
+      padding-top: 100px;
       position: relative;
       overflow: hidden;
     }
@@ -60,13 +61,8 @@
 
     .gallery-intro { max-width: 600px; }
 
-    /* Upload hint */
-    .upload-hint {
-      font-size: 0.78rem;
-      color: var(--text-light);
-      text-align: center;
-      margin-top: 0.5rem;
-    }
+    /* Upload zone — hidden from visitors */
+    .upload-zone, .upload-hint { display: none !important; }
   </style>
 </head>
 <body>
@@ -114,7 +110,7 @@
       <div class="gallery-intro">
         <span class="section-label">Browse</span>
         <h2 style="font-size:1.8rem;">Moments From the Land</h2>
-        <p style="font-size:0.92rem; margin-top:0.4rem;">Filter by season or category, or drop your own photos below to add them to the collection.</p>
+        <p style="font-size:0.92rem; margin-top:0.4rem;">Filter by season or category to explore the sanctuary through every lens.</p>
       </div>
     </div>
 
