@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <defs>
+    <linearGradient id="sky-s" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5b8fbb"/>
+      <stop offset="50%" stop-color="#8ab4d4"/>
+      <stop offset="100%" stop-color="#c8dce8"/>
+    </linearGradient>
+    <linearGradient id="mountain-s" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8e8ec"/>
+      <stop offset="40%" stop-color="#c0c4cc"/>
+      <stop offset="100%" stop-color="#7a8a96"/>
+    </linearGradient>
+    <clipPath id="circle-s">
+      <circle cx="150" cy="150" r="148"/>
+    </clipPath>
+  </defs>
+
+  <circle cx="150" cy="150" r="150" fill="url(#sky-s)"/>
+
+  <g clip-path="url(#circle-s)">
+    <!-- Sky -->
+    <rect width="300" height="300" fill="url(#sky-s)"/>
+
+    <!-- Clouds -->
+    <ellipse cx="80"  cy="60"  rx="45" ry="20" fill="white" opacity="0.85"/>
+    <ellipse cx="110" cy="52"  rx="35" ry="18" fill="white" opacity="0.9"/>
+    <ellipse cx="220" cy="75"  rx="40" ry="18" fill="white" opacity="0.8"/>
+    <ellipse cx="250" cy="65"  rx="30" ry="15" fill="white" opacity="0.85"/>
+
+    <!-- Distant snow-capped mountain -->
+    <polygon points="90,200 150,90 210,200" fill="url(#mountain-s)"/>
+    <!-- Snow cap -->
+    <polygon points="130,125 150,90  170,125 160,120 150,108 140,120 Z" fill="white" opacity="0.95"/>
+    <!-- Mountain shadow side -->
+    <polygon points="150,90 210,200 170,200" fill="#9aa4ae" opacity="0.4"/>
+
+    <!-- Green foothills -->
+    <ellipse cx="50"  cy="290" rx="130" ry="70" fill="#2d5a3d"/>
+    <ellipse cx="260" cy="295" rx="120" ry="65" fill="#1a3a2a"/>
+    <!-- Low grasses hint -->
+    <ellipse cx="150" cy="300" rx="170" ry="50" fill="#3a6b4a"/>
+
+    <!-- Body — black Columbia jacket -->
+    <rect x="80" y="220" width="140" height="90" rx="10" fill="#1c1f24"/>
+    <!-- Jacket zipper/seam -->
+    <line x1="150" y1="225" x2="150" y2="310" stroke="#333" stroke-width="2"/>
+    <!-- Columbia logo area -->
+    <circle cx="165" cy="240" r="6" fill="#2a2d34"/>
+    <!-- Hood pulled up loosely -->
+    <path d="M82 228 Q78 210 88 200 Q110 188 150 188 Q190 188 212 200 Q222 210 218 228" fill="#222527" opacity="0.7"/>
+
+    <!-- Neck -->
+    <rect x="133" y="193" width="34" height="34" rx="5" fill="#d4a882"/>
+
+    <!-- Head -->
+    <ellipse cx="150" cy="173" rx="46" ry="48" fill="#ddb890"/>
+
+    <!-- Ear -->
+    <ellipse cx="105" cy="175" rx="8" ry="10" fill="#ddb890"/>
+    <ellipse cx="195" cy="175" rx="8" ry="10" fill="#ddb890"/>
+
+    <!-- Hair — dark, slightly visible below visor -->
+    <path d="M104 152 Q150 145 196 152" fill="#2a1a0a" stroke="none"/>
+
+    <!-- Smile -->
+    <path d="M135 190 Q150 202 165 190" stroke="#b8886a" stroke-width="2" fill="none"/>
+    <!-- Teeth hint -->
+    <path d="M138 191 Q150 200 162 191" fill="white" opacity="0.7"/>
+
+    <!-- Nose -->
+    <path d="M146 180 Q148 185 150 185 Q152 185 154 180" stroke="#c4906a" stroke-width="1.5" fill="none"/>
+
+    <!-- Eyes -->
+    <ellipse cx="136" cy="168" rx="9" ry="7" fill="white"/>
+    <ellipse cx="164" cy="168" rx="9" ry="7" fill="white"/>
+    <ellipse cx="137" cy="169" rx="5" ry="5" fill="#3a2010"/>
+    <ellipse cx="165" cy="169" rx="5" ry="5" fill="#3a2010"/>
+    <circle cx="139" cy="167" r="1.5" fill="white"/>
+    <circle cx="167" cy="167" r="1.5" fill="white"/>
+    <!-- Eyebrows -->
+    <path d="M127 160 Q136 156 145 159" stroke="#2a1a0a" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M155 159 Q164 156 173 160" stroke="#2a1a0a" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+    <!-- Visor/cap — tan/cream colored -->
+    <!-- Brim -->
+    <path d="M88 140 Q150 134 212 140 L214 148 Q150 155 86 148 Z" fill="#d4b896"/>
+    <!-- Cap crown low / visor style — mostly brim -->
+    <path d="M100 140 Q102 122 150 120 Q198 122 200 140" fill="#c8aa80"/>
+    <!-- Visor band -->
+    <path d="M100 140 Q150 136 200 140 Q150 144 100 140 Z" fill="#b89860"/>
+    <!-- Clear visor panel hint -->
+    <path d="M102 134 Q150 130 198 134" stroke="#9ab8c8" stroke-width="1.5" fill="none" opacity="0.5"/>
+
+  </g>
+
+  <circle cx="150" cy="150" r="148" fill="none" stroke="#e8e0d0" stroke-width="3"/>
+</svg>

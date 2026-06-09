@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <defs>
+    <linearGradient id="sky-d" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7bafc8"/>
+      <stop offset="60%" stop-color="#9dc4d8"/>
+      <stop offset="100%" stop-color="#b8d4e0"/>
+    </linearGradient>
+    <linearGradient id="hill-d" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2d5a3d"/>
+      <stop offset="100%" stop-color="#1a3a2a"/>
+    </linearGradient>
+    <clipPath id="circle-d">
+      <circle cx="150" cy="150" r="148"/>
+    </clipPath>
+  </defs>
+
+  <!-- Sky background -->
+  <circle cx="150" cy="150" r="150" fill="url(#sky-d)"/>
+
+  <!-- Clipping group -->
+  <g clip-path="url(#circle-d)">
+
+    <!-- Sky -->
+    <rect width="300" height="300" fill="url(#sky-d)"/>
+
+    <!-- Rolling hill / forest background -->
+    <ellipse cx="150" cy="290" rx="220" ry="90" fill="#1a3a2a"/>
+    <ellipse cx="60"  cy="270" rx="80"  ry="50" fill="#2d5a3d"/>
+    <ellipse cx="240" cy="275" rx="90"  ry="55" fill="#2d5a3d"/>
+    <!-- Tree silhouettes -->
+    <polygon points="30,245 45,200 60,245"  fill="#1a3a2a"/>
+    <polygon points="50,250 68,195 86,250"  fill="#223d2e"/>
+    <polygon points="220,250 238,196 256,250" fill="#1a3a2a"/>
+    <polygon points="245,255 260,205 275,255" fill="#223d2e"/>
+
+    <!-- Body / jacket — dark plaid flannel -->
+    <rect x="85" y="222" width="130" height="90" rx="8" fill="#3a3f4a"/>
+    <!-- Jacket lapels -->
+    <polygon points="150,228 120,265 150,255" fill="#2e3340"/>
+    <polygon points="150,228 180,265 150,255" fill="#2e3340"/>
+    <!-- Collar / shirt underneath -->
+    <rect x="133" y="218" width="34" height="20" rx="3" fill="#5a6070"/>
+
+    <!-- Neck -->
+    <rect x="132" y="192" width="36" height="36" rx="6" fill="#b8916a"/>
+
+    <!-- Head -->
+    <ellipse cx="150" cy="175" rx="48" ry="50" fill="#c49870"/>
+
+    <!-- Ear -->
+    <ellipse cx="103" cy="178" rx="9" ry="11" fill="#c49870"/>
+    <ellipse cx="197" cy="178" rx="9" ry="11" fill="#c49870"/>
+
+    <!-- Beard / stubble area -->
+    <ellipse cx="150" cy="208" rx="34" ry="14" fill="#9a7650" opacity="0.55"/>
+    <!-- Mustache hint -->
+    <ellipse cx="150" cy="196" rx="14" ry="5" fill="#9a7650" opacity="0.45"/>
+
+    <!-- Face details -->
+    <!-- Nose -->
+    <ellipse cx="150" cy="186" rx="6" ry="5" fill="#b8895e"/>
+    <!-- Smile lines -->
+    <path d="M136 194 Q140 200 148 200" stroke="#a07850" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <path d="M164 194 Q160 200 152 200" stroke="#a07850" stroke-width="1.5" fill="none" opacity="0.6"/>
+
+    <!-- Sunglasses — dark rectangular -->
+    <rect x="112" y="165" width="30" height="17" rx="7" fill="#1a1a1a" opacity="0.92"/>
+    <rect x="158" y="165" width="30" height="17" rx="7" fill="#1a1a1a" opacity="0.92"/>
+    <!-- Bridge -->
+    <line x1="142" y1="173" x2="158" y2="173" stroke="#333" stroke-width="2.5"/>
+    <!-- Temples -->
+    <line x1="112" y1="173" x2="102" y2="176" stroke="#333" stroke-width="2"/>
+    <line x1="188" y1="173" x2="198" y2="176" stroke="#333" stroke-width="2"/>
+    <!-- Subtle reflection on lenses -->
+    <path d="M117 168 Q122 166 126 168" stroke="white" stroke-width="1.2" fill="none" opacity="0.4"/>
+    <path d="M163 168 Q168 166 172 168" stroke="white" stroke-width="1.2" fill="none" opacity="0.4"/>
+
+    <!-- Gray baseball cap -->
+    <!-- Brim shadow under cap -->
+    <ellipse cx="150" cy="138" rx="56" ry="10" fill="#555" opacity="0.25"/>
+    <!-- Brim -->
+    <path d="M94 136 Q150 130 206 136 L210 142 Q150 148 90 142 Z" fill="#888"/>
+    <!-- Cap body -->
+    <path d="M98 136 Q100 105 150 102 Q200 105 202 136 Q176 128 150 126 Q124 128 98 136 Z" fill="#999"/>
+    <!-- Cap button top -->
+    <circle cx="150" cy="104" r="5" fill="#777"/>
+    <!-- Logo mark — simple chevron like Quiksilver -->
+    <path d="M143 118 L150 112 L157 118 L154 118 L150 114 L146 118 Z" fill="#666" opacity="0.8"/>
+
+  </g>
+
+  <!-- Circle border -->
+  <circle cx="150" cy="150" r="148" fill="none" stroke="#e8e0d0" stroke-width="3"/>
+</svg>
