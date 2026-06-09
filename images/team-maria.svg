@@ -4,10 +4,6 @@
       <stop offset="0%" stop-color="#3a6b4a"/>
       <stop offset="100%" stop-color="#1a3a2a"/>
     </linearGradient>
-    <linearGradient id="light-m" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f5e8c0" opacity="0.4"/>
-      <stop offset="100%" stop-color="#d4b870" opacity="0"/>
-    </linearGradient>
     <clipPath id="circle-m">
       <circle cx="150" cy="150" r="148"/>
     </clipPath>
@@ -16,95 +12,74 @@
   <circle cx="150" cy="150" r="150" fill="url(#bg-m)"/>
 
   <g clip-path="url(#circle-m)">
-    <!-- Forest background -->
     <rect width="300" height="300" fill="url(#bg-m)"/>
 
-    <!-- Dappled light overlay -->
-    <ellipse cx="220" cy="60"  rx="80" ry="80" fill="#f5e090" opacity="0.12"/>
-    <ellipse cx="80"  cy="80"  rx="60" ry="60" fill="#f5e090" opacity="0.08"/>
+    <ellipse cx="220" cy="60" rx="80" ry="80" fill="#f5e090" opacity="0.12"/>
+    <ellipse cx="80" cy="80" rx="60" ry="60" fill="#f5e090" opacity="0.08"/>
 
-    <!-- Tree trunks in background -->
     <rect x="30"  y="80"  width="14" height="220" rx="5" fill="#1a3a2a" opacity="0.6"/>
     <rect x="60"  y="100" width="10" height="200" rx="4" fill="#1a3a2a" opacity="0.5"/>
     <rect x="240" y="90"  width="13" height="210" rx="5" fill="#1a3a2a" opacity="0.6"/>
     <rect x="265" y="110" width="9"  height="190" rx="4" fill="#1a3a2a" opacity="0.5"/>
-    <!-- Leaf canopy hints -->
     <ellipse cx="37"  cy="85"  rx="28" ry="22" fill="#2d5a3d" opacity="0.7"/>
     <ellipse cx="65"  cy="105" rx="22" ry="18" fill="#3a6b4a" opacity="0.6"/>
     <ellipse cx="247" cy="95"  rx="26" ry="20" fill="#2d5a3d" opacity="0.7"/>
 
-    <!-- Ground foliage -->
     <ellipse cx="150" cy="300" rx="200" ry="60" fill="#1a3a2a"/>
     <ellipse cx="50"  cy="295" rx="90"  ry="45" fill="#2d5a3d" opacity="0.8"/>
     <ellipse cx="260" cy="290" rx="80"  ry="40" fill="#2d5a3d" opacity="0.8"/>
 
-    <!-- Body — trench coat / tan jacket -->
+    <!-- Body -->
     <rect x="78" y="225" width="144" height="90" rx="8" fill="#c8b090"/>
-    <!-- Lapels -->
     <polygon points="150,232 124,268 148,258" fill="#b89e78"/>
     <polygon points="150,232 176,268 152,258" fill="#b89e78"/>
-    <!-- Buttons -->
     <circle cx="150" cy="245" r="3" fill="#9a8060"/>
     <circle cx="150" cy="260" r="3" fill="#9a8060"/>
 
-    <!-- Hijab — taupe/gray, wraps around head -->
     <!-- Hijab body around face -->
     <path d="M88 195 Q82 180 85 160 Q88 130 108 118 Q130 108 150 108 Q170 108 192 118 Q212 130 215 160 Q218 180 212 195 Q190 218 150 222 Q110 218 88 195 Z" fill="#b8a898"/>
     <!-- Hijab drape over shoulders -->
     <path d="M88 195 Q78 210 80 230 Q90 240 110 242 Q130 244 150 244" fill="#b8a898"/>
     <path d="M212 195 Q222 210 220 230 Q210 240 190 242 Q170 244 150 244" fill="#b8a898"/>
-    <!-- Hijab highlight/fold -->
     <path d="M95 185 Q90 170 96 158" stroke="#ccc0b0" stroke-width="2" fill="none" opacity="0.6"/>
     <path d="M90 200 Q86 212 90 224" stroke="#ccc0b0" stroke-width="1.5" fill="none" opacity="0.5"/>
 
     <!-- Face -->
     <ellipse cx="150" cy="168" rx="44" ry="46" fill="#c8987a"/>
 
-    <!-- Warm smile -->
     <path d="M133 186 Q150 198 167 186" stroke="#a06840" stroke-width="2" fill="none"/>
     <path d="M136 187 Q150 196 164 187" fill="white" opacity="0.75"/>
 
-    <!-- Nose -->
     <ellipse cx="150" cy="179" rx="6" ry="5" fill="#b88060"/>
 
-    <!-- Eyes behind glasses -->
+    <!-- Eyes -->
     <ellipse cx="136" cy="165" rx="9" ry="7.5" fill="white"/>
     <ellipse cx="164" cy="165" rx="9" ry="7.5" fill="white"/>
     <ellipse cx="136" cy="166" rx="5.5" ry="5" fill="#3d2510"/>
     <ellipse cx="164" cy="166" rx="5.5" ry="5" fill="#3d2510"/>
     <circle cx="138" cy="164" r="1.5" fill="white"/>
     <circle cx="166" cy="164" r="1.5" fill="white"/>
-    <!-- Eyebrows -->
     <path d="M127 157 Q136 153 145 156" stroke="#5a3820" stroke-width="2" fill="none" stroke-linecap="round"/>
     <path d="M155 156 Q164 153 173 157" stroke="#5a3820" stroke-width="2" fill="none" stroke-linecap="round"/>
 
-    <!-- Glasses frames — dark rectangular -->
+    <!-- Glasses -->
     <rect x="123" y="158" width="26" height="17" rx="5" fill="none" stroke="#1a1a1a" stroke-width="2.5"/>
     <rect x="151" y="158" width="26" height="17" rx="5" fill="none" stroke="#1a1a1a" stroke-width="2.5"/>
-    <!-- Bridge -->
     <line x1="149" y1="166" x2="151" y2="166" stroke="#1a1a1a" stroke-width="2.5"/>
-    <!-- Temples -->
     <line x1="123" y1="166" x2="112" y2="168" stroke="#1a1a1a" stroke-width="2"/>
     <line x1="177" y1="166" x2="188" y2="168" stroke="#1a1a1a" stroke-width="2"/>
 
-    <!-- Straw hat — wide brim -->
-    <!-- Brim shadow -->
+    <!-- Straw hat brim -->
     <ellipse cx="150" cy="127" rx="72" ry="14" fill="#3a2a10" opacity="0.25"/>
-    <!-- Brim -->
     <ellipse cx="150" cy="124" rx="70" ry="12" fill="#d4a84a"/>
-    <!-- Brim texture lines -->
     <path d="M82 122 Q150 116 218 122" stroke="#c09030" stroke-width="0.8" fill="none" opacity="0.5"/>
     <path d="M88 126 Q150 120 212 126" stroke="#c09030" stroke-width="0.8" fill="none" opacity="0.4"/>
     <!-- Hat crown -->
     <path d="M105 124 Q108 100 150 98 Q192 100 195 124" fill="#c89c3a"/>
-    <!-- Red Cornell band! -->
+    <!-- Red band (no text) -->
     <path d="M107 120 Q108 113 150 112 Q192 113 193 120 Q150 117 107 120 Z" fill="#cc2200"/>
-    <!-- CORNELL text hint on band -->
-    <rect x="126" y="113" width="48" height="6" rx="2" fill="#cc2200"/>
-    <text x="150" y="118.5" font-family="Arial, sans-serif" font-size="5.5" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="1">CORNELL</text>
     <!-- Hat button top -->
     <circle cx="150" cy="100" r="4" fill="#b88a28"/>
-    <!-- Straw texture hint -->
     <path d="M110 108 Q130 105 150 106 Q170 105 190 108" stroke="#b88a28" stroke-width="0.8" fill="none" opacity="0.4"/>
 
   </g>
